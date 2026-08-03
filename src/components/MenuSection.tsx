@@ -5,12 +5,12 @@ import Image from "next/image";
 import { useCartStore } from "@/store/useCartStore";
 
 const menuItems = [
-  { id: "1", name: "Chicken Juicy Mandi", price: 350, image: "/dishes/chicken juicy mandi.png" },
-  { id: "2", name: "Mutton Juicy Mandi", price: 450, image: "/dishes/mutton juicy mandi.png" },
-  { id: "3", name: "Chicken Faham Mandi", price: 380, image: "/dishes/chicken faham mandi.png" },
-  { id: "4", name: "Fish Platter Mandi", price: 500, image: "/dishes/fish platter mandi.png" },
-  { id: "5", name: "Chicken Madfoon Mandi", price: 400, image: "/dishes/chicken madfoon mandi.png" },
-  { id: "6", name: "Chicken Majestic", price: 280, image: "/dishes/chicken majestic.png" },
+  { id: "1", name: "Chicken Juicy Mandi", price: 350, image: "/dishes/chicken_juicy_mandi.png" },
+  { id: "2", name: "Mutton Juicy Mandi", price: 450, image: "/dishes/mutton_juicy_mandi.png" },
+  { id: "3", name: "Chicken Faham Mandi", price: 380, image: "/dishes/chicken_faham_mandi.png" },
+  { id: "4", name: "Fish Platter Mandi", price: 500, image: "/dishes/fish_platter_mandi.png" },
+  { id: "5", name: "Chicken Madfoon Mandi", price: 400, image: "/dishes/chicken_madfoon_mandi.png" },
+  { id: "6", name: "Chicken Majestic", price: 280, image: "/dishes/chicken_majestic.png" },
   { id: "7", name: "Royal Arabian Mix Mandi", price: 850, image: "" }, // Intentional missing image for skeleton
 ];
 

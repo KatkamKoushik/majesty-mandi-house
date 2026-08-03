@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuCard } from '../ui/MenuCard';
 import { CartItem, MenuItem } from '@/types';
@@ -13,15 +13,43 @@ interface MenuGridProps {
 }
 
 export function MenuGrid({ cart, items, onIncrease, onDecrease, onAdd }: MenuGridProps) {
-  const categories = ["All", "Chicken Starters", "Chicken Mandi", "Mutton Mandi", "Seafood Mandi", "Veg & Egg", "Specials"];
+  const uniqueCategories = Array.from(new Set(items.map(item => item.category)));
+  const categories = ["All", ...uniqueCategories];
   const [activeCategory, setActiveCategory] = useState("All");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="menu" className="w-full max-w-7xl mx-auto py-16 md:py-24 px-4 sm:px-6 md:px-12 bg-[#0A0A0B]">
       <h3 className="text-3xl sm:text-4xl font-serif text-white text-center mb-8 sm:mb-12">The Royal Selection</h3>
 
       {/* ── Category Filter Bar (Scrollable on mobile) ── */}
-      <div className="flex overflow-x-auto whitespace-nowrap gap-3 sm:gap-4 pb-4 mb-12 sm:mb-16 max-w-full justify-start md:justify-center px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="relative flex items-center mb-12 sm:mb-16 px-2 md:px-12">
+        <button
+          onClick={scrollLeft}
+          className="hidden md:flex absolute left-0 top-1/2 -translate-y-[60%] z-10 items-center justify-center w-10 h-10 bg-[#161618] text-white rounded-full shadow-lg border border-neutral-800 hover:border-[#DFB15B] hover:text-[#DFB15B] transition-all"
+          aria-label="Scroll left"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto overflow-y-hidden whitespace-nowrap gap-3 sm:gap-4 pb-4 max-w-full justify-start px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-1"
+        >
         {categories.map(cat => (
           <button
             key={cat}
@@ -35,6 +63,17 @@ export function MenuGrid({ cart, items, onIncrease, onDecrease, onAdd }: MenuGri
             {cat}
           </button>
         ))}
+        </div>
+
+        <button
+          onClick={scrollRight}
+          className="hidden md:flex absolute right-0 top-1/2 -translate-y-[60%] z-10 items-center justify-center w-10 h-10 bg-[#161618] text-white rounded-full shadow-lg border border-neutral-800 hover:border-[#DFB15B] hover:text-[#DFB15B] transition-all"
+          aria-label="Scroll right"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
 
       {/* ── Menu Grid ── */}

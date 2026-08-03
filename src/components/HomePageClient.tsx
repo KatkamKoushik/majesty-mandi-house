@@ -1,5 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { db } from '@/lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import { Navbar } from '@/components/layout/Navbar';
 import { CanvasHero } from '@/components/layout/CanvasHero';
 import { CartDrawer } from '@/components/layout/CartDrawer';
@@ -13,6 +15,32 @@ import { CartItem, MenuItem } from '@/types';
 export function HomePageClient({ initialMenuItems }: { initialMenuItems: MenuItem[] }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>(initialMenuItems);
+
+  useEffect(() => {
+    const fetchMenuItems = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "dishes"));
+        const items: MenuItem[] = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          items.push({
+            id: doc.id,
+            name: data.name,
+            description: data.description,
+            prices: data.prices || { Regular: 0 },
+            category: data.category,
+            image: data.image_url,
+          } as MenuItem);
+        });
+        // We might need to sort them or just set them
+        setMenuItems(items);
+      } catch (error) {
+        console.error("Failed to fetch menu from Firebase:", error);
+      }
+    };
+    fetchMenuItems();
+  }, []);
 
   // Cart Functions
   const addToCart = (item: Omit<CartItem, 'qty'>) => {
@@ -90,7 +118,7 @@ export function HomePageClient({ initialMenuItems }: { initialMenuItems: MenuIte
 
       <MenuGrid 
         cart={cart} 
-        items={initialMenuItems}
+        items={menuItems}
         onIncrease={increaseQty} 
         onDecrease={decreaseQty} 
         onAdd={addToCart} 

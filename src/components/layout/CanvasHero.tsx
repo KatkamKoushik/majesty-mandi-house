@@ -21,19 +21,16 @@ function frameUrl(index: number): string {
 }
 
 const heroImages = [
-  '/dishes/chicken juicy mandi.png',
-  '/dishes/mutton juicy mandi.png',
-  '/dishes/fish platter mandi.png',
-  '/dishes/chicken full mandi.png',
-  '/dishes/chicken broasted mandi.png',
-  '/dishes/chicken crispy mandi.png',
-  '/dishes/chicken faham mandi.png',
-  '/dishes/chicken fry mandi.png',
-  '/dishes/chicken madfoon mandi.png',
-  '/dishes/mutton fry mandi.png',
-  '/dishes/fish fry mandi.png',
-  '/dishes/prawns juicy Mandi.png',
-  '/dishes/paneer fry mandi.png',
+  '/dishes/eight_person_mandi.png', // Specials
+  '/dishes/chicken_zubriyan_mandi.png', // Zubriyan
+  '/dishes/chicken_juicy_mandi.png', // Chicken Mandi
+  '/dishes/mutton_ghee_roast_mandi.png', // Mutton Mandi
+  '/dishes/chicken_majestic.png', // Starter Mandi
+  '/dishes/malai_tikka_mandi.png', // Tikka Mandi
+  '/dishes/prawns_juicy_mandi.png', // Seafood
+  '/dishes/paneer_fry_mandi.png', // Veg
+  '/dishes/chicken_65.png', // Dry Starters
+  '/dishes/kunafa.png', // Desserts
 ];
 
 export function CanvasHero() {
@@ -198,7 +195,7 @@ export function CanvasHero() {
           <p className="text-sm sm:text-base md:text-lg text-neutral-400 mb-8 sm:mb-12 max-w-lg px-2">Experience the ultimate authentic Arabian dining right here in Hanamkonda.</p>
           <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl animate-[bounce_4s_ease-in-out_infinite] relative aspect-[4/3]">
             <Image
-              src={heroImages[currentHeroIdx]}
+              src={heroImages[currentHeroIdx % heroImages.length] || heroImages[0]}
               alt="Signature Mandi"
               fill
               sizes="(max-width: 640px) 320px, (max-width: 768px) 448px, 672px"
