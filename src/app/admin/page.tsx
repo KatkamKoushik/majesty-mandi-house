@@ -125,7 +125,7 @@ export default function AdminPage() {
           <h1 className="text-2xl md:text-3xl font-playfair text-[#DFB15B]">Admin Dashboard</h1>
           <p className="text-neutral-400">Welcome, {user?.firstName || "Admin"}</p>
         </div>
-        <UserButton afterSignOutUrl="/" />
+        <UserButton />
       </header>
 
       <div className="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
