@@ -5,6 +5,7 @@ import { db } from "@/lib/firebase";
 import { collection, getDocs, doc, updateDoc, deleteDoc, addDoc } from "firebase/firestore";
 import { CldUploadWidget } from "next-cloudinary";
 import { UserButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
 
 type Dish = {
   id: string;
@@ -125,12 +126,20 @@ export default function AdminPage() {
           <h1 className="text-2xl md:text-3xl font-playfair text-[#DFB15B]">Admin Dashboard</h1>
           <p className="text-neutral-400">Welcome, {user?.firstName || "Admin"}</p>
         </div>
-        <UserButton />
+        <div className="flex items-center gap-4">
+          <Link href="/" className="hidden md:flex text-sm text-[#DFB15B] hover:text-white border border-[#DFB15B] px-4 py-2 rounded transition-colors">
+            View Live Website
+          </Link>
+          <Link href="/" className="md:hidden text-sm text-[#DFB15B] hover:text-white border border-[#DFB15B] px-3 py-1 rounded transition-colors">
+            Home
+          </Link>
+          <UserButton />
+        </div>
       </header>
 
       <div className="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         {/* Category Filters */}
-        <div className="flex overflow-x-auto gap-2 max-w-full pb-2 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="flex flex-wrap gap-2 max-w-full pb-2 md:pb-0">
           {categories.map((cat) => (
             <button
               key={cat}
