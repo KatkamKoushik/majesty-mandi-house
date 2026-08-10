@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1, h2, h3 {
+    @apply font-cinzel;
+  }
+}
+
 body {
   background-color: #0B0B0C;
   color: #ffffff;

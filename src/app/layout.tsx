@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs'
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Montserrat, Cinzel } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,6 +11,16 @@ const inter = Inter({
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
 });
 
 export const metadata: Metadata = {
@@ -25,8 +35,33 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+      <html lang="en" className={`${inter.variable} ${playfair.variable} ${montserrat.variable} ${cinzel.variable} scroll-smooth`}>
         <body className="bg-[#0B0B0C] text-white min-h-screen overflow-x-hidden flex flex-col selection:bg-[#DFB15B] selection:text-[#0B0B0C]">
+          <div className="w-full py-3 px-4 flex flex-col items-center justify-center text-center relative z-[100] overflow-hidden">
+            {/* HTML5 Video Background */}
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover z-0"
+            >
+              <source src="/ambiance/gold-particles.mp4" type="video/mp4" />
+            </video>
+
+            {/* Dark Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 z-0 pointer-events-none" />
+            
+            <p className="font-montserrat text-[9px] md:text-[10px] font-semibold uppercase text-white tracking-[0.3em] mb-1.5 relative z-10">
+              CURRENTLY AVAILABLE FOR SHOWCASE PURPOSES.
+            </p>
+            <p 
+              className="font-cinzel text-xs md:text-sm text-white uppercase tracking-[0.3em] relative z-10"
+              style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(255, 255, 255, 0.3)" }}
+            >
+              A CUSTOM WEB EXPERIENCE BUILT BY KOUSHIK &amp; VYSHNAVI.
+            </p>
+          </div>
           {children}
         </body>
       </html>

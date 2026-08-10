@@ -14,6 +14,8 @@ module.exports = {
       fontFamily: {
         serif: ['var(--font-playfair)', 'serif'],
         sans: ['var(--font-inter)', 'sans-serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
+        cinzel: ['var(--font-cinzel)', 'serif'],
       },
     },
   },
