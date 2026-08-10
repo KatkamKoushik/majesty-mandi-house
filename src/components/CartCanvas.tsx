@@ -43,7 +43,7 @@ export default function CartCanvas() {
         receiptText += `\n*Total:* ₹${total}\n*Payment ID:* ${paymentId}\n\nThank you for ordering!`;
 
         const encodedText = encodeURIComponent(receiptText);
-        window.open(`https://wa.me/918008120038?text=${encodedText}`, "_blank");
+        window.open(`https://wa.me/919502316909?text=${encodedText}`, "_blank");
         
         clearCart();
         closeCart();

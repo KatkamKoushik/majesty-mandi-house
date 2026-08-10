@@ -43,7 +43,7 @@ export function CartDrawer({ isOpen, onClose, cart, onIncrease, onDecrease }: Ca
       `*Grand Total:* ₹${grandTotal}` +
       addressLine + notesLine
     );
-    window.open(`https://wa.me/918008120038?text=${text}`, '_blank');
+    window.open(`https://wa.me/919502316909?text=${text}`, '_blank');
   };
 
   return (

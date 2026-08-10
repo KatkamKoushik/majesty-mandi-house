@@ -20,8 +20,8 @@ export default function Footer() {
           <h4 className="text-white font-medium mb-4">Contact Us</h4>
           <p className="text-sm flex items-center gap-2">
             <span className="text-imperial">WhatsApp:</span> 
-            <a href="https://wa.me/918008120038" className="hover:text-amber transition-colors">
-              +91 80081 20038
+            <a href="https://wa.me/919502316909" className="hover:text-amber transition-colors">
+              +91 95023 16909
             </a>
           </p>
           <p className="text-sm flex items-center gap-2">
