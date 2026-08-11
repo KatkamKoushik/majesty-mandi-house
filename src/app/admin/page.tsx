@@ -35,7 +35,7 @@ export default function AdminPage() {
 
   const fetchDishes = async () => {
     setLoading(true);
-    const querySnapshot = await getDocs(collection(db, "dishes"));
+    const querySnapshot = await getDocs(collection(db, "menuItems"));
     const fetchedDishes: Dish[] = [];
     querySnapshot.forEach((doc) => {
       const data = doc.data();
@@ -59,9 +59,9 @@ export default function AdminPage() {
   const handleSave = async (dish: Dish) => {
     if (dish.id === "new") {
       const { id, ...newDishData } = dish;
-      await addDoc(collection(db, "dishes"), newDishData);
+      await addDoc(collection(db, "menuItems"), newDishData);
     } else {
-      const dishRef = doc(db, "dishes", dish.id);
+      const dishRef = doc(db, "menuItems", dish.id);
       await updateDoc(dishRef, {
         name: dish.name,
         description: dish.description,
@@ -76,7 +76,7 @@ export default function AdminPage() {
 
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this dish?")) {
-      await deleteDoc(doc(db, "dishes", id));
+      await deleteDoc(doc(db, "menuItems", id));
       fetchDishes();
     }
   };

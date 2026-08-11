@@ -20,7 +20,7 @@ export function HomePageClient({ initialMenuItems }: { initialMenuItems: MenuIte
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "dishes"));
+        const querySnapshot = await getDocs(collection(db, "menuItems"));
         const items: MenuItem[] = [];
         querySnapshot.forEach((doc) => {
           const data = doc.data();
