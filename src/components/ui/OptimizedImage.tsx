@@ -28,7 +28,7 @@ export function OptimizedImage({ src, alt, className, fallbackAlt, ...props }: O
   const isDataUri = typeof src === 'string' && src.startsWith('data:');
   const isRemote  = typeof src === 'string' && src.startsWith('http');
 
-  if (isDataUri || isRemote) {
+  if (isDataUri) {
     // Destructure Next.js specific props to avoid passing them to native <img> elements
     const { fill, quality, priority, placeholder, blurDataURL, ...domProps } = props as any;
     return (
