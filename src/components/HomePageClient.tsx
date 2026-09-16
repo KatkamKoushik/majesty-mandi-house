@@ -139,9 +139,11 @@ export function HomePageClient({ initialMenuItems }: { initialMenuItems: MenuIte
             loop 
             muted 
             playsInline 
-            src="/ambiance/footer-particles.mp4" 
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover z-0" 
-          />
+          >
+            <source src="/ambiance/footer-particles.mp4" type="video/mp4" />
+          </video>
           {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
 
