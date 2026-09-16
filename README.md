@@ -2,20 +2,20 @@
 
 A production-grade, immersive web experience built for Majesty Mandi House, a premier Arabian Mandi restaurant located in Hanamkonda, Warangal, Telangana.
 
-This project delivers a luxury digital presence featuring interactive scroll-driven canvas animations, dynamic menu management, WhatsApp-integrated ordering and table reservations, and an authenticated administrative dashboard.
+This project was conceived, designed, and developed by Koushik Katkam and Vyshnavi Nagavelli.
 
 ---
 
 ## Project Background
 
-This web application was originally engineered as a commercial product intended for acquisition by the management of Majesty Mandi House to modernize their digital presence, streamline online take-out and delivery orders, and eliminate third-party aggregator commissions.
+This web application was originally engineered by Koushik Katkam and Vyshnavi Nagavelli as a commercial product intended for acquisition by the management of Majesty Mandi House. The objective was to modernize the restaurant's digital presence, facilitate direct online take-out and delivery orders via WhatsApp, handle table reservations, and eliminate commissions charged by third-party food delivery aggregators.
 
-When the restaurant management declined the proposal, the authors decided to preserve the codebase and publish it as an active, high-performance showcase and engineering portfolio piece.
+When the restaurant management declined the purchase proposal, the developers chose to preserve the complete codebase and deploy it publicly as an active, high-performance showcase and engineering portfolio demonstration.
 
-To make the context clear to visitors, the site features a top notice banner:
+To communicate this context to visitors, a prominent announcement banner is placed at the top of the interface:
 `CURRENTLY AVAILABLE FOR SHOWCASE PURPOSES. A CUSTOM WEB EXPERIENCE BUILT BY KOUSHIK & VYSHNAVI.`
 
-All ordering workflows, menu configurations, reservation engines, and administrative interfaces are fully functional and serve as a real-world demonstration of modern web technologies.
+All ordering workflows, menu configurations, reservation mechanisms, and administrative interfaces remain fully functional, demonstrating production-level full-stack engineering and luxury brand presentation.
 
 ---
 
@@ -29,50 +29,50 @@ https://majesty-mandi-house-eight.vercel.app
 ## Core Capabilities and Architecture
 
 ### 1. Scroll-Driven 241-Frame Canvas Hero
-- Renders an interactive 241-frame sequence (`frame_0000.webp` to `frame_0240.webp`) bound directly to user scroll position.
-- Uses an HTML5 `<canvas>` element managed via a requestAnimationFrame throttle to guarantee consistent 60 FPS playback without DOM re-renders.
-- Includes eager image preloading and cache-busting mechanisms to prevent browser asset caching glitches.
-- Transitions seamlessly into an interactive hero section displaying rotating signature Mandi platters.
+- Renders an interactive 241-frame sequence (`frame_0000.webp` to `frame_0240.webp`) linked directly to the user's scroll progression.
+- Uses an HTML5 `<canvas>` element managed through a requestAnimationFrame throttle to maintain consistent 60 FPS rendering without triggering React re-renders.
+- Employs eager image preloading and cache-busting query strings to prevent stale asset delivery.
+- Smoothly transitions into an interactive section presenting rotating signature Mandi platters.
 
 ### 2. Dual-Source Dynamic Menu Engine
-- Primary data source: Google Cloud Firestore (`menuItems` collection).
-- Secondary data source: Structured local fallback in `src/data/menu.ts` to ensure zero downtime during network or quota failures.
+- Primary data store: Google Cloud Firestore (`menuItems` collection).
+- Secondary data store: Structured local fallback located in `src/data/menu.ts` to ensure continuous availability during network latency or quota limits.
 - Category filtering: Specials, Chicken Starters, Chicken Mandi, Mutton Mandi, Seafood Mandi, Veg and Egg, Desserts, and Beverages.
-- Supports multi-portion pricing models per dish (for example: Single, Half, Full, 1 Piece, 2 Pieces, 4 Pieces, Jumbo).
+- Supports multi-portion pricing structures per item (such as Single, Half, Full, 1 Piece, 2 Pieces, 4 Pieces, Jumbo).
 
 ### 3. WhatsApp Direct Order Dispatch
-- Built-in slide-out Cart Drawer (`CartDrawer.tsx`) supporting quantity increments, portion variations, delivery or pickup selection, and delivery address inputs.
-- Automatically calculates:
-  - Line-item prices based on selected portion size
+- Built-in slide-out Cart Drawer (`CartDrawer.tsx`) supporting quantity adjustments, portion selection, delivery or pickup designation, and customer delivery address capture.
+- Automatically computes:
+  - Item totals based on selected portion sizes
   - Order subtotal
   - Statutory 5% Goods and Services Tax (GST)
   - Final payable grand total
-- Compiles the entire order into an encoded WhatsApp message string and dispatches it directly to the restaurant operations line via `wa.me/919502316909`.
+- Assembles the complete order into an encoded WhatsApp message string and dispatches it directly to the restaurant operations number (`+91 9502316909`).
 
 ### 4. Table Reservation System
-- A dedicated reservation interface (`TableReservation.tsx`) allowing guests to select guest counts, date, time slot, and occasion (birthday, anniversary, family gathering).
-- Formulates a structured booking notification sent directly through WhatsApp for immediate confirmation.
+- A dedicated reservation interface (`TableReservation.tsx`) that gathers guest party size, preferred date, time slot, customer contact info, and celebration occasion.
+- Formulates a structured booking message sent directly through WhatsApp for immediate staff confirmation.
 
 ### 5. Birthday Promotion Modal
-- Automated promotional modal (`BirthdayPromoModal.tsx`) that triggers after initial user engagement.
-- Allows diners to register their birth date and claim an exclusive 10% celebration discount via automated WhatsApp verification.
+- An automated promotional modal (`BirthdayPromoModal.tsx`) that appears following initial page engagement.
+- Allows patrons to submit their birth date to claim an exclusive 10% celebration discount via automated WhatsApp messaging.
 
 ### 6. High-Resolution Physical Menu Viewer
-- Dedicated route at `/physical-menu` displaying full-bleed, high-resolution scans of the physical dine-in menu cards for guests who prefer the traditional printed layout.
+- A dedicated route at `/physical-menu` rendering full-bleed, high-resolution scans of the physical dine-in menu cards for diners who prefer the printed layout.
 
 ### 7. Authenticated Administrative Dashboard
-- Secure route at `/admin` protected by Clerk Authentication (`@clerk/nextjs`).
+- A secure route at `/admin` protected by Clerk Authentication (`@clerk/nextjs`).
 - Complete CRUD operations on Firestore `menuItems`:
-  - Create new dishes with multiple portion prices
-  - Update dish names, descriptions, pricing structures, and categories
-  - Upload dish imagery directly to Cloudinary using `CldUploadWidget`
-  - Remove deprecated dishes with real-time UI synchronization
-- Custom login route at `/admin/login` styled to match the dark luxury aesthetic.
+  - Creation of new menu items with custom portion price maps
+  - Modification of item names, descriptions, prices, and categories
+  - Direct image uploads to Cloudinary via `CldUploadWidget`
+  - Deletion of menu items with instant UI synchronization
+- A custom login interface at `/admin/login` styled consistently with the dark visual theme.
 
 ### 8. Ambient Video Layering
-- Seamless looping video backgrounds embedded in the top announcement banner (`gold-particles.mp4`) and the footer section (`footer-particles.mp4`).
-- Optimized with `autoPlay`, `loop`, `muted`, `playsInline`, and `preload="auto"` attributes.
-- Configured in Next.js middleware (`src/proxy.ts`) to bypass authentication checks and allow direct CDN caching and streaming.
+- Seamless looping background video elements embedded in the top showcase banner (`gold-particles.mp4`) and the footer section (`footer-particles.mp4`).
+- Optimized using `autoPlay`, `loop`, `muted`, `playsInline`, and `preload="auto"` attributes.
+- Configured in the Next.js middleware proxy (`src/proxy.ts`) to bypass authentication checks and allow direct CDN caching and streaming.
 
 ---
 
@@ -134,7 +134,7 @@ majesty-mandi-house/
 
 ## Environment Configuration
 
-Create a `.env.local` file in the root directory and configure the following variables:
+A `.env.local` file must be created in the root directory with the following variables:
 
 ```env
 # Clerk Authentication
@@ -147,21 +147,21 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/admin
 
 # Firebase Client Configuration
 NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSy...
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.firebasestorage.app
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=project-id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=project-id.firebasestorage.app
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=1234567890
 NEXT_PUBLIC_FIREBASE_APP_ID=1:1234567890:web:...
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-...
 
 # Cloudinary (Admin Image Uploads)
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
-NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=cloudinary_cloud_name
+NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=cloudinary_upload_preset
 ```
 
 ---
 
-## Installation and Local Development
+## Installation and Local Setup
 
 ### Prerequisites
 - Node.js 18.18 or higher
@@ -180,33 +180,33 @@ NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
    pnpm install
    ```
 
-3. Populate environment variables:
-   Copy `.env.example` to `.env.local` and add your Firebase, Clerk, and Cloudinary keys.
+3. Configure environment variables:
+   Create a `.env.local` file following the template above and supply valid credentials for Firebase, Clerk, and Cloudinary.
 
 4. Optional - Seed the Firestore Database:
-   If your Firestore database is empty, seed it with the default restaurant menu records:
+   If the Firestore database contains no initial documents, populate it with default records:
    ```bash
    node migrate.mjs
    ```
 
-5. Run the local development server:
+5. Launch the local development server:
    ```bash
    pnpm run dev
    ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+6. Navigate to `http://localhost:3000` in a web browser to view the application.
 
 ---
 
-## Building for Production
+## Production Build
 
-To create an optimized production build:
+To assemble an optimized production build:
 
 ```bash
 pnpm run build
 ```
 
-To test the production build locally:
+To execute the production build locally:
 
 ```bash
 pnpm run start
@@ -216,21 +216,21 @@ pnpm run start
 
 ## Design and Typography Details
 
-The visual system adopts a regal Middle Eastern luxury aesthetic:
-- Primary Background: `#0A0A0B` / `#0B0B0C` (deep obsidian black)
-- Primary Accent: `#DFB15B` and `#C5A059` (warm imperial gold)
+The visual system implements a Middle Eastern luxury culinary aesthetic:
+- Primary Background: `#0A0A0B` / `#0B0B0C` (obsidian black)
+- Primary Accent: `#DFB15B` and `#C5A059` (imperial gold)
 - Accent Gradients: `#DFB15B` to `#F3A833`
 - Typography:
-  - `Cinzel`: Classical serif used for prestige headings and branding
-  - `Playfair Display`: High-contrast editorial display font
-  - `Montserrat`: Geometric sans-serif for sub-headings, badges, and uppercase labels
-  - `Inter`: Highly legible neutral sans-serif for body descriptions and tabular prices
+  - `Cinzel`: Classical serif employed for titles, headings, and branding
+  - `Playfair Display`: High-contrast editorial display serif
+  - `Montserrat`: Geometric sans-serif utilized for badges, labels, and sub-headings
+  - `Inter`: Neutral sans-serif used for body paragraphs and price listings
 
 ---
 
 ## Creators and Credits
 
-Designed and developed by:
+Conceived, designed, and developed by:
 
 - Koushik Katkam
   - Email: koushikkatkam@gmail.com
@@ -247,4 +247,4 @@ Designed and developed by:
 
 ## License and Terms
 
-This repository is maintained for showcase and demonstration purposes. Commercial brand names, trademarks, and restaurant assets belong to their respective owners.
+This repository is maintained for demonstration and showcase purposes. Commercial brand names, trademarks, and establishment assets remain the property of their respective owners.
