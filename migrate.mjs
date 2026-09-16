@@ -7,13 +7,13 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCEqW1lSfmjAUpbK1Yc6jNjlHdWawN0kNs",
-  authDomain: "majesty-mandi.firebaseapp.com",
-  projectId: "majesty-mandi",
-  storageBucket: "majesty-mandi.firebasestorage.app",
-  messagingSenderId: "545386451292",
-  appId: "1:545386451292:web:877b47e5f4881ce80c7199",
-  measurementId: "G-JDV6SH8D79"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "majesty-mandi.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "majesty-mandi",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "majesty-mandi.firebasestorage.app",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "545386451292",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:545386451292:web:877b47e5f4881ce80c7199",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-JDV6SH8D79"
 };
 
 const app = initializeApp(firebaseConfig);

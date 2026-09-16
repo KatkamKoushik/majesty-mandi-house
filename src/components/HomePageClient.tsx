@@ -129,10 +129,10 @@ export function HomePageClient({ initialMenuItems }: { initialMenuItems: MenuIte
       <TableReservation />
 
       {/* ═══════════════ FOOTER & CONTACT ═══════════════ */}
-      <div id="contact" className="w-full mt-20">
+      <div id="contact" className="w-full">
         {/* Golden Divider Line */}
         <div className="w-full h-[1px] bg-[#C5A059]/40 relative z-30" />
-        <footer className="relative overflow-hidden w-full py-16 px-4 sm:px-8 bg-[#0A0A0B]">
+        <footer className="relative overflow-hidden w-full py-14 px-6 sm:px-10 bg-[#0A0A0B]">
           {/* Video Background */}
           <video 
             autoPlay 
@@ -143,59 +143,59 @@ export function HomePageClient({ initialMenuItems }: { initialMenuItems: MenuIte
             className="absolute inset-0 w-full h-full object-cover z-0" 
           />
           {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
 
-          <div className="relative z-20 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-10 pb-8">
+          <div className="relative z-20 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
             {/* Left Side: Design Credits */}
-          <div className="flex flex-col">
-            <span className="text-xs uppercase tracking-[0.2em] text-neutral-400 mb-3 font-sans">
-              DESIGNED &amp; DEVELOPED BY
-            </span>
-            <div className="flex flex-col gap-1">
-              <h2 className="font-cinzel text-white text-lg sm:text-xl md:text-2xl uppercase tracking-[0.1em] md:tracking-[0.3em] whitespace-nowrap">KOUSHIK KATKAM</h2>
-              <h2 className="font-cinzel text-white text-lg sm:text-xl md:text-2xl uppercase tracking-[0.1em] md:tracking-[0.3em] whitespace-nowrap">VYSHNAVI NAGAVELLI</h2>
-            </div>
-          </div>
-
-          {/* Right Side: Clickable Contact Links */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-16 lg:gap-24 md:text-right font-sans w-full md:w-auto overflow-hidden">
-            {/* Vyshnavi's Column */}
-            <div className="flex flex-col gap-6 w-full max-w-full overflow-hidden">
-              <div className="flex flex-col md:items-end w-full overflow-hidden">
-                <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">EMAIL</span>
-                <a href="mailto:nagavellivyshnavi3@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wider truncate block w-full text-left md:text-right">nagavellivyshnavi3@gmail.com</a>
-              </div>
-              <div className="flex flex-col md:items-end w-full overflow-hidden">
-                <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">LINKEDIN</span>
-                <a href="https://linkedin.com/in/vyshnavi-nagavelli-135465355/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wider truncate block w-full text-left md:text-right">in/vyshnavi-nagavelli</a>
-              </div>
-              <div className="flex flex-col md:items-end w-full overflow-hidden">
-                <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">GITHUB</span>
-                <a href="https://github.com/nagavellivyshnavi" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wider truncate block w-full text-left md:text-right">github.com/nagavellivyshnavi</a>
+            <div className="flex flex-col shrink-0">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 mb-3 font-sans">
+                DESIGNED &amp; DEVELOPED BY
+              </span>
+              <div className="flex flex-col gap-1">
+                <h2 className="font-cinzel text-white text-xl sm:text-2xl uppercase tracking-[0.15em] whitespace-nowrap">KOUSHIK KATKAM</h2>
+                <h2 className="font-cinzel text-white text-xl sm:text-2xl uppercase tracking-[0.15em] whitespace-nowrap">VYSHNAVI NAGAVELLI</h2>
               </div>
             </div>
 
-            {/* Koushik's Column */}
-            <div className="flex flex-col gap-6 w-full max-w-full overflow-hidden">
-              <div className="flex flex-col md:items-end w-full overflow-hidden">
-                <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">EMAIL</span>
-                <a href="mailto:koushikkatkam@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wider truncate block w-full text-left md:text-right">koushikkatkam@gmail.com</a>
+            {/* Right Side: Clickable Contact Links */}
+            <div className="grid grid-cols-2 gap-10 md:gap-16 lg:gap-24 text-left md:text-right font-sans">
+              {/* Vyshnavi's Column */}
+              <div className="flex flex-col gap-5">
+                <div className="flex flex-col md:items-end">
+                  <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">EMAIL</span>
+                  <a href="mailto:nagavellivyshnavi3@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wide">nagavellivyshnavi3@gmail.com</a>
+                </div>
+                <div className="flex flex-col md:items-end">
+                  <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">LINKEDIN</span>
+                  <a href="https://linkedin.com/in/vyshnavi-nagavelli-135465355/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wide">in/vyshnavi-nagavelli</a>
+                </div>
+                <div className="flex flex-col md:items-end">
+                  <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">GITHUB</span>
+                  <a href="https://github.com/nagavellivyshnavi" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wide">github.com/nagavellivyshnavi</a>
+                </div>
               </div>
-              <div className="flex flex-col md:items-end w-full overflow-hidden">
-                <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">INSTAGRAM</span>
-                <a href="https://instagram.com/koushik_katkam" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wider truncate block w-full text-left md:text-right">@koushik_katkam</a>
-              </div>
-              <div className="flex flex-col md:items-end w-full overflow-hidden">
-                <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">LINKEDIN</span>
-                <a href="https://linkedin.com/in/koushik-katkam" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wider truncate block w-full text-left md:text-right">in/koushik-katkam</a>
-              </div>
-              <div className="flex flex-col md:items-end w-full overflow-hidden">
-                <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">GITHUB</span>
-                <a href="https://github.com/KatkamKoushik" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wider truncate block w-full text-left md:text-right">github.com/KatkamKoushik</a>
+
+              {/* Koushik's Column */}
+              <div className="flex flex-col gap-5">
+                <div className="flex flex-col md:items-end">
+                  <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">EMAIL</span>
+                  <a href="mailto:koushikkatkam@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wide">koushikkatkam@gmail.com</a>
+                </div>
+                <div className="flex flex-col md:items-end">
+                  <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">INSTAGRAM</span>
+                  <a href="https://instagram.com/koushik_katkam" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wide">@koushik_katkam</a>
+                </div>
+                <div className="flex flex-col md:items-end">
+                  <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">LINKEDIN</span>
+                  <a href="https://linkedin.com/in/koushik-katkam" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wide">in/koushik-katkam</a>
+                </div>
+                <div className="flex flex-col md:items-end">
+                  <span className="text-[10px] text-[#C5A059] tracking-widest uppercase mb-1 font-semibold">GITHUB</span>
+                  <a href="https://github.com/KatkamKoushik" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C5A059] transition-colors duration-300 text-sm tracking-wide">github.com/KatkamKoushik</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </footer>
       </div>
     </main>

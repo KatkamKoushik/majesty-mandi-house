@@ -35,9 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${inter.variable} ${playfair.variable} ${montserrat.variable} ${cinzel.variable} scroll-smooth`}>
-        <body className="bg-[#0B0B0C] text-white min-h-screen overflow-x-hidden flex flex-col selection:bg-[#DFB15B] selection:text-[#0B0B0C]">
-          <div className="w-full py-3 px-4 flex flex-col items-center justify-center text-center relative z-[100] overflow-hidden">
+      <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} ${montserrat.variable} ${cinzel.variable} scroll-smooth`}>
+        <body suppressHydrationWarning className="bg-[#0B0B0C] text-white min-h-screen overflow-x-hidden flex flex-col selection:bg-[#DFB15B] selection:text-[#0B0B0C]">
+          <div className="w-full py-6 px-4 flex flex-col items-center justify-center text-center relative z-[100] overflow-hidden">
             {/* HTML5 Video Background */}
             <video 
               autoPlay 
@@ -52,11 +52,11 @@ export default function RootLayout({
             {/* Dark Overlay for Readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 z-0 pointer-events-none" />
             
-            <p className="font-montserrat text-[9px] md:text-[10px] font-semibold uppercase text-white tracking-[0.3em] mb-1.5 relative z-10">
+            <p className="font-montserrat text-[11px] md:text-[13px] font-semibold uppercase text-white tracking-[0.3em] mb-2 relative z-10">
               CURRENTLY AVAILABLE FOR SHOWCASE PURPOSES.
             </p>
             <p 
-              className="font-cinzel text-xs md:text-sm text-white uppercase tracking-[0.3em] relative z-10"
+              className="font-cinzel text-sm md:text-base text-white uppercase tracking-[0.3em] relative z-10"
               style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(255, 255, 255, 0.3)" }}
             >
               A CUSTOM WEB EXPERIENCE BUILT BY KOUSHIK &amp; VYSHNAVI.
